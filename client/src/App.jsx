@@ -16,7 +16,7 @@ function App() {
 
   useEffect(() => {
     // Initialize socket connection
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io("https://stock-trading-dashboard-qvs7.onrender.com");
     setSocket(newSocket);
 
     newSocket.on("connect", () => {
@@ -68,7 +68,9 @@ function App() {
 
   const fetchStocks = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/stocks");
+      const response = await fetch(
+        "https://stock-trading-dashboard-qvs7.onrender.com/api/stocks"
+      );
       const stockList = await response.json();
       setStocks(stockList);
       if (stockList.length > 0) {
